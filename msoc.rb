@@ -1,11 +1,11 @@
 # require 'tty-progressbar' 
+require 'tty-table'
+require 'coupon_code'
+
 require_relative 'models/ships'
 require_relative 'models/cruises'
 require_relative 'models/booknow'
 require_relative 'models/specialoffers' 
-
-
-
 
 ######### This is for Progress Bar #####
 # bar = TTY::ProgressBar.new("downloading [:bar]", total: 30)
@@ -13,6 +13,7 @@ require_relative 'models/specialoffers'
 #   sleep(0.1)
 #   bar.advance(1)
 # end
+
 
 ##### This will help to clear screen ######
 clear_code = %x{clear}
@@ -70,8 +71,39 @@ puts " Please Enter what you want to do ?"
             puts "*************************************************************"
     elsif (options == "booknow" || options == "BOOKNOW"|| options == "3" )
             puts "Welcome to Our Book Now Page"
+
+
     elsif (options == "special" || options == "SPECIAL"|| options == "4" )
-            puts "Welcome to Our Special Page"
+            # clear_code = %x{clear} 
+            # print clear_code 
+            while true do
+                puts "*************************************************************"
+                puts "Welcome to Our Special Offers Page"
+                puts "*************************************************************"
+                puts "Please Make a Selection:" 
+                puts " 1. Discount " + "2. Excursions " + " 3. Packages " + " 4. Menu "
+                puts "*************************************************************"
+                options = gets.chomp 
+                options = options.upcase 
+                clear_code = %x{clear} 
+                print clear_code
+                if (options == '1'|| options == " DISCOUNT ")
+                    code = CouponCode.generate
+                    CouponCode.validate(code)
+                    puts " Discount Code : " + CouponCode.generate(parts: 4)
+                elsif(options == '2'|| options == " EXCURSIONS ")
+                    puts " Excursion section " 
+                elsif(options == '3'|| options == " PACKAGES ")
+                    puts " Packages section " 
+                elsif (options == "menu" || options == "MENU"|| options == "4" )
+                    clear_code = %x{clear} 
+                    print clear_code 
+                    break
+                else
+                    puts "Invalid Selection"      
+                end
+            end
+
     elsif (options == "exit" || options == "EXIT"|| options == "5" )
             puts "See you again. Thank you"
             break

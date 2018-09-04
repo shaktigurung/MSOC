@@ -1,4 +1,4 @@
-# require 'tty-progressbar' 
+require 'tty-progressbar' 
 require 'tty-table'
 require 'coupon_code'
 
@@ -6,19 +6,19 @@ require_relative 'models/ships'
 require_relative 'models/cruises'
 require_relative 'models/booknow'
 require_relative 'models/specialoffers' 
-
-######### This is for Progress Bar #####
-# bar = TTY::ProgressBar.new("downloading [:bar]", total: 30)
-# 30.times do
-#   sleep(0.1)
-#   bar.advance(1)
-# end
-
-
 ##### This will help to clear screen ######
 clear_code = %x{clear}
 print clear_code
 
+######## This is for Progress Bar #####
+bar = TTY::ProgressBar.new("downloading [:bar]", total: 100)
+100.times do
+  sleep(0.1)
+  bar.advance(1)
+end
+
+clear_code = %x{clear}
+print clear_code
 #### This will help to run the menu again and again ####
 while  true do
 puts "************************************************************"
@@ -74,8 +74,8 @@ puts " Please Enter what you want to do ?"
 
 
     elsif (options == "special" || options == "SPECIAL"|| options == "4" )
-            # clear_code = %x{clear} 
-            # print clear_code 
+            clear_code = %x{clear} 
+            print clear_code 
             while true do
                 puts "*************************************************************"
                 puts "Welcome to Our Special Offers Page"

@@ -22,7 +22,7 @@ print clear_code
 #### This will help to run the menu again and again ####
 while  true do
 puts "************************************************************"
-puts " Welcome to  MS Ocean Cruises " +  " Trip of your life Time "
+puts " Welcome to  MS Ocean Cruises " +  " Book the Trip of your Lifetime "
 puts "*************************************************************"
 
 puts " 1. Ships " + " 3. Book Now "
@@ -37,8 +37,8 @@ puts " Please Enter what you want to do ?"
             puts " Details of Our Awesome Ships"
             ship1 =Ships.new("MS Sky", 100, 2010)
             ship2 =Ships.new("MS Star", 250, 2014)
-            ship3 =Ships.new("MS_Sun", 350, 2016)
-            ship4 =Ships.new("MS_Moon", 500, 2018) 
+            ship3 =Ships.new("MS Sun", 350, 2016)
+            ship4 =Ships.new("MS Moon", 500, 2018) 
             puts "*************************************************************"
             ship1.ship_details  
             puts "*************************************************************"

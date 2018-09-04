@@ -1,4 +1,11 @@
 # require 'tty-progressbar' 
+require_relative 'models/ships'
+require_relative 'models/cruises'
+require_relative 'models/booknow'
+require_relative 'models/specialoffers' 
+
+
+
 
 ######### This is for Progress Bar #####
 # bar = TTY::ProgressBar.new("downloading [:bar]", total: 30)
@@ -7,7 +14,7 @@
 #   bar.advance(1)
 # end
 
-##### This will help to clear scree ######
+##### This will help to clear screen ######
 clear_code = %x{clear}
 print clear_code
 
@@ -24,9 +31,43 @@ puts " Please Enter what you want to do ?"
     options = gets.chomp
     options = options.upcase
     if (options == "ships" || options == "SHIPS" || options == "1" )
-            puts " Welcome to Our Ships Page"
+        clear_code = %x{clear}
+        print clear_code
+            puts " Details of Our Awesome Ships"
+            ship1 =Ships.new("MS Sky", 100, 2010)
+            ship2 =Ships.new("MS Star", 250, 2014)
+            ship3 =Ships.new("MS_Sun", 350, 2016)
+            ship4 =Ships.new("MS_Moon", 500, 2018) 
+            puts "*************************************************************"
+            ship1.ship_details  
+            puts "*************************************************************"
+            ship2.ship_details
+            puts "*************************************************************"
+            ship3.ship_details 
+            puts "*************************************************************"
+            ship4.ship_details
+            puts "*************************************************************"
     elsif (options == "Cruises" || options == "CRUISES"|| options == "2" )
-            puts " Welcome to Our Cruises Page"
+        clear_code = %x{clear}
+        print clear_code
+            puts "Welcome to Our Cruises Page" 
+            puts "Please Select Your Next Destination"  
+            puts "*************************************************************"
+            cruise1 = Cruises.new("Asia", "Hong Kong", "Hong Kong Disneyland")
+            cruise1.trip_details  
+            puts "*************************************************************"
+            cruise2 = Cruises.new("Africa", "South Africa", "Madagascar")
+            cruise2.trip_details
+            puts "*************************************************************"
+            cruise3 = Cruises.new("America", "Mexico & Caribbean", "Bermuda Triangle")
+            cruise3.trip_details 
+            puts "*************************************************************"
+            cruise4 = Cruises.new("Oceania", "Australia & New Zealand", "Great Barrier Reef") 
+            cruise4.trip_details
+            puts "*************************************************************"
+            cruise5 = Cruises.new("Europe", "France & Italy", "Eiffel Tower & Rome") 
+            cruise5.trip_details
+            puts "*************************************************************"
     elsif (options == "booknow" || options == "BOOKNOW"|| options == "3" )
             puts "Welcome to Our Book Now Page"
     elsif (options == "special" || options == "SPECIAL"|| options == "4" )

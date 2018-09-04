@@ -10,7 +10,9 @@ class Ships
       puts "Guest Capacity: #{@guest_number}"
       puts "Year Built: #{@year_built}"
    end
-end 
+end  
+
+
 
 
 

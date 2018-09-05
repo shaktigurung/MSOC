@@ -68,4 +68,36 @@ class Title
       color: 'blue', 
       bold: true
   end
+  def titleSpecial
+      header title: 'Special Offers ', 
+      width: 80, 
+      align: 'center', 
+      rule: true, 
+      color: 'blue', 
+      bold: true, 
+      timestamp: true
+      footer title: ' ', 
+      width: 80, 
+      align: 'center', 
+      rule: true, 
+      color: 'blue', 
+      bold: true
+    table(border: true) do
+      row do
+        column('Choose Options', width: 30, align: 'left', padding: 5,  color: 'red')
+      end
+      row do
+        column('1. Discounts ')
+      end
+      row do
+         column('2. Excursions ')
+       end
+       row do
+         column('3. Packages ')
+       end
+       row do
+         column('4. Menu ')
+       end
+    end
+  end
 end

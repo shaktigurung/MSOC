@@ -2,6 +2,7 @@ require 'tty-progressbar'
 require 'tty-table'
 require 'coupon_code'
 require 'command_line_reporter'
+require 'tty-prompt'
 
 require_relative 'models/ships'
 require_relative 'models/title'
@@ -23,7 +24,15 @@ print clear_code
 #### This will help to run the menu again and again ####
 while  true do
 Title.new.title
-puts " Please Choose your Option Number ?"
+prompt = TTY::Prompt.new
+prompt.ask("What is your name?") do |q|
+    q.required true
+    q.validate /\A\w+\Z/
+    q.modify :capitalize
+end
+prompt.yes?('Are you excited about Cruise Tour ?')
+
+puts " Please Choose your Option Number from above list ?"
         options = gets.chomp
         options = options.upcase
     if (options == "ships" || options == "SHIPS" || options == "1" )
@@ -54,20 +63,24 @@ puts " Please Choose your Option Number ?"
     elsif (options == "booknow" || options == "BOOKNOW"|| options == "3" )
             clear_code = %x{clear}
             print clear_code
-            puts "Welcome to Our Book Now Page"
-            puts " Enter your fullname :"
-            fullname = gets.chomp
-            puts " Enter your address :"
-            address = gets.chomp
-            puts " Enter your phone number :"
-            phone_number = gets.chomp.to_i
-            puts " Enter your email : "
-            email = gets.chomp
-            puts " Enter your preferred ship(1.MS Sky 2.MS Star 3.MS Sun  4. MS Moon) : "
-            ship_name = gets.chomp
-            puts " Enter your preferred Cruise Voyage (1.Asia 2.Africa 3.America 4. Oceania 5. Europe): "
-            cruise = gets.chomp
-            customer = Booknow.new(fullname, address, phone_number, email, ship_name , cruise)
+            Title.new.titlebooking
+            fullname = prompt.ask("What is your name?") do |q|
+                q.required true
+                q.validate(/\A\w+\Z/,'Invalid Name')
+            end
+            address = prompt.ask("Enter your address?") do |q|
+                q.required true
+            end
+            phone_number = prompt.ask('Enter your phone number ') do |q|
+                q.validate(/\b^([0-9]{10})$\b/, 'Invalid Phone number')
+            end
+            email = prompt.ask('What is your email?') do |q|
+                q.validate(/\A\w+@\w+\.\w+\Z/, 'Invalid email address')
+            end
+            ship_name = prompt.select("Choose your Ship?", %w(MSSky MSStar MSSun  MSMoon))
+            cruise = prompt.select("Choose your Voyage?", %w(Asia Africa America Oceania Europe))
+            trip_duration = prompt.select("Choose Trip Duration ?", %w(One-Week Two-Week Three-Week Four-Week))
+            customer = Booknow.new(fullname, address, phone_number, email, ship_name , cruise,  trip_duration)
             customer.Itinerary
 
     elsif (options == "special" || options == "SPECIAL"|| options == "4" )
@@ -102,6 +115,7 @@ puts " Please Choose your Option Number ?"
             end
 
     elsif (options == "exit" || options == "EXIT"|| options == "5" )
+            prompt.yes?('Are you sure you want to exit ?')
             puts "See you again. Thank you"
             break
     else
@@ -109,4 +123,3 @@ puts " Please Choose your Option Number ?"
     end
 end
 
-##### Image Section ####

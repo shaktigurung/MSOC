@@ -9,7 +9,7 @@ class Cruises
         @attractions = attractions  
     end 
     def cruisetitle
-        header title: 'Awesome Cruises Voyages of MS Ocean Cruies ', 
+        header title: 'Awesome Cruise Voyages of MS Ocean Cruises ', 
         width: 80, 
         align: 'center', 
         rule: true, 
@@ -27,7 +27,7 @@ class Cruises
     table(border: true) do
         row color: 'red' do
           column('Continent', width: 10)
-          column('Countries', width: 30, align: 'right', padding: 5)
+          column('Countries', width: 35, align: 'right', padding: 5)
           column('Attractions ', width: 25)
         end
         row color: 'blue' do 

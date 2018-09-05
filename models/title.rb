@@ -19,7 +19,6 @@ class Title
         color: 'blue', 
         bold: true
         
-
         table(border: true) do
          row do
            column('Choose Options', width: 30, align: 'left', padding: 5,  color: 'red')
@@ -54,4 +53,19 @@ class Title
        bold: true
     end
 
+    def titlebooking
+      header title: 'Booking Details ', 
+      width: 80, 
+      align: 'center', 
+      rule: true, 
+      color: 'blue', 
+      bold: true, 
+      timestamp: true
+      footer title: ' ', 
+      width: 80, 
+      align: 'center', 
+      rule: true, 
+      color: 'blue', 
+      bold: true
+  end
 end

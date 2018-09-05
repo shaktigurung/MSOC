@@ -11,7 +11,7 @@ class Ships
         self.formatter = 'progress'
    end
    def shiptitle
-        header title: 'Awesome Ships of MS Ocean Cruies ', 
+        header title: 'Awesome Ships of MS Ocean Cruises ', 
         width: 80, 
         align: 'center', 
         rule: true, 

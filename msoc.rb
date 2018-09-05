@@ -94,14 +94,16 @@ puts " Please Choose your Option Number from above list ?"
                 options = options.upcase 
                 clear_code = %x{clear} 
                 print clear_code
+                Title.new.titlespecialrest
                 if (options == '1'|| options == " DISCOUNT ")
                     code = CouponCode.generate
                     CouponCode.validate(code)
-                    puts " Discount Code : " + CouponCode.generate(parts: 4)
+                    # Title.new.titleSpecial
+                    puts " Here is your Discount Code : " + CouponCode.generate(parts: 4)
                 elsif(options == '2'|| options == " EXCURSIONS ")
-                    puts " Excursion section " 
+                    puts " Excursion Coming soon... " 
                 elsif(options == '3'|| options == " PACKAGES ")
-                    puts " Packages section " 
+                    puts " Packages Coming soon... " 
                 elsif (options == "menu" || options == "MENU"|| options == "4" )
                     clear_code = %x{clear} 
                     print clear_code 

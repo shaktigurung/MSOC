@@ -68,6 +68,21 @@ class Title
       color: 'blue', 
       bold: true
   end
+  def titlespecialrest
+    header title: 'Special Offers ', 
+      width: 80, 
+      align: 'center', 
+      rule: true, 
+      color: 'blue', 
+      bold: true, 
+      timestamp: true
+      footer title: ' ', 
+      width: 80, 
+      align: 'center', 
+      rule: true, 
+      color: 'blue', 
+      bold: true
+  end
   def titleSpecial
       header title: 'Special Offers ', 
       width: 80, 

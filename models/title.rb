@@ -53,8 +53,9 @@ class Title
        bold: true
     end
 
-    def titlebooking
-      header title: 'Booking Details ', 
+    
+    def titlediscount
+      header title: 'Discount Offers ', 
       width: 80, 
       align: 'center', 
       rule: true, 

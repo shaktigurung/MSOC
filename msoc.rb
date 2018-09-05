@@ -1,5 +1,5 @@
 # require 'tty-progressbar' 
-require 'tty-table'
+# require 'tty-table'
 require 'coupon_code'
 
 require_relative 'models/ships'

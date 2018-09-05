@@ -12,26 +12,27 @@ require_relative 'models/specialoffers'
 ##### This will help to clear screen ######
 clear_code = %x{clear}
 print clear_code
-
+prompt = TTY::Prompt.new
+welcome = prompt.ask("What is your name?") do |q|
+    q.required true
+    q.validate /\A\w+\Z/
+    q.modify :capitalize
+end
+puts " Welcome to MS Ocean Cruises #{welcome}"
+prompt.yes?('Are you excited about Cruise Tour ?')
+prompt.yes?('Lets do it...')
 ######## This is for Progress Bar #####
 bar = TTY::ProgressBar.new("downloading [:bar]", total: 10)
 10.times do
   sleep(0.1)
   bar.advance(1)
 end
+
+#### This will help to run the menu again and again ####
 clear_code = %x{clear}
 print clear_code
-#### This will help to run the menu again and again ####
 while  true do
 Title.new.title
-prompt = TTY::Prompt.new
-prompt.ask("What is your name?") do |q|
-    q.required true
-    q.validate /\A\w+\Z/
-    q.modify :capitalize
-end
-prompt.yes?('Are you excited about Cruise Tour ?')
-
 puts " Please Choose your Option Number from above list ?"
         options = gets.chomp
         options = options.upcase

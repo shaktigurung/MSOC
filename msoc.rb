@@ -87,12 +87,8 @@ puts " Please Choose your Option Number from above list ?"
             clear_code = %x{clear} 
             print clear_code 
             while true do
-                puts "*************************************************************"
-                puts "Welcome to Our Special Offers Page"
-                puts "*************************************************************"
-                puts "Please Make a Selection:" 
-                puts " 1. Discount " + "2. Excursions " + " 3. Packages " + " 4. Menu "
-                puts "*************************************************************"
+                Title.new.titleSpecial
+                puts " Please Choose your Option Number from above list ?"
                 options = gets.chomp 
                 options = options.upcase 
                 clear_code = %x{clear} 
